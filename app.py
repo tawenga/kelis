@@ -9,11 +9,9 @@ from passlib.apps import custom_app_context as pwd_context
 from flask_msearch import Search
 import os
 
-
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://kelis:password@localhost/kelis'
-#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://kelis:password@localhost/kelis')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MSEARCH_INDEX_NAME'] = 'whoosh_index'
@@ -111,8 +109,8 @@ def update_profile(id):
 @app.route("/api/search",  methods=['POST'])
 def w_search():
     keyword = request.json.get('keyword')
-    user_profiles = UserProfile.query.msearch(keyword).all()
-    #user_profiles = UserProfile.query.msearch(keyword).order_by(UserProfile.thumbs_up.desc()).all()   ##switch to this
+    #user_profiles = UserProfile.query.msearch(keyword).all()
+    user_profiles = UserProfile.query.msearch(keyword).order_by(UserProfile.thumbs_up.desc()).all()   ##switch to this
     return jsonify({
         'user_profiles': [user_profile.to_json() for user_profile in user_profiles],
     })
@@ -137,12 +135,12 @@ class User(db.Model):
 
 class UserProfile(db.Model):
     __tablename__ = 'user_profiles'
-    __searchable__ = ['username', 'course_name_and_year']
+   # __searchable__ = ['username', 'course_name_and_year']
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer)
     username = db.Column(db.String(64), unique=True, index=True)
     course_name_and_year = db.Column(db.String(64), index=True)
-    photo = db.Column(db.String(64))
+    photo = db.Column(db.String(255))
     thumbs_up = db.Column(db.Integer)
     thumbs_down = db.Column(db.Integer)
 
