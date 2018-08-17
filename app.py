@@ -135,7 +135,7 @@ class User(db.Model):
 
 class UserProfile(db.Model):
     __tablename__ = 'user_profiles'
-   # __searchable__ = ['username', 'course_name_and_year']
+    __searchable__ = ['username', 'course_name_and_year']
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer)
     username = db.Column(db.String(64), unique=True, index=True)
