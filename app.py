@@ -10,8 +10,8 @@ from flask_msearch import Search
 import os
 
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://kelis:password@localhost/kelis'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://kelis:password@localhost/kelis'
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MSEARCH_INDEX_NAME'] = 'whoosh_index'
@@ -54,7 +54,7 @@ def login():
     user = User.query.filter_by(username = username).first()
     if user is not None:
         return jsonify({ 'id': user.id, 'status': True })
-    return jsonify({ 'status': True })
+    return jsonify({ 'status': False })
 
 @app.route('/api/users/<int:id>')
 def get_user(id):
