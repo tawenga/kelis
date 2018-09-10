@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="150a378f-037c-4723-bd5e-c5de0d8957d2" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whoosh_index/user_profiles/MAIN_no1kckdm8fbf7v9z.seg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/whoosh_index/user_profiles/MAIN_oy5sylj8o292dfli.seg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/whoosh_index/user_profiles/MAIN_pw2atm4k6z2vu1rr.seg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/whoosh_index/user_profiles/MAIN_q9x6wq53h09f0cwe.seg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/whoosh_index/user_profiles/MAIN_vntmp5oy7wr7fu0f.seg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/whoosh_index/user_profiles/_MAIN_10.toc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whoosh_index/user_profiles/MAIN_0pvwrrpakm3ugjcb.seg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whoosh_index/user_profiles/MAIN_1akap7ns0x07a60e.seg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whoosh_index/user_profiles/MAIN_3xh4hjrrlc0rxjyo.seg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whoosh_index/user_profiles/MAIN_h4xgxhxrgu7yw5px.seg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/whoosh_index/user_profiles/_MAIN_14.toc" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,11 +22,8 @@
       <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="360">
+              <caret line="232" column="9" lean-forward="true" selection-start-line="232" selection-start-column="9" selection-end-line="232" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -62,6 +59,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -73,7 +71,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -108,14 +105,14 @@
     <frame x="39" y="25" width="1327" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24039187" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2446319" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3295082" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -469,11 +466,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="360">
+          <caret line="232" column="9" lean-forward="true" selection-start-line="232" selection-start-column="9" selection-end-line="232" selection-end-column="9" />
         </state>
       </provider>
     </entry>

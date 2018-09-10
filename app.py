@@ -83,6 +83,15 @@ def get_profiles(id):
     user_profile = UserProfile.query.get_or_404(id)
     return jsonify(user_profile.to_json())
 
+#get profile of own class
+@app.route('/api/profiles/myclass', methods=['POST'])
+def get_my_class_profiles():
+    my_class = request.json.get('my_class')
+    user_profiles = UserProfile.query.filter_by(course_name_and_year = my_class).order_by(UserProfile.thumbs_up.desc()).all()
+    return jsonify({
+        'user_profiles': [user_profile.to_json() for user_profile in user_profiles],
+    })
+
 #edit profile
 @app.route('/api/profiles/<int:id>', methods=['PUT'])
 def update_profile(id):
@@ -115,6 +124,19 @@ def w_search():
         'user_profiles': [user_profile.to_json() for user_profile in user_profiles],
     })
 
+@app.route("/api/like",  methods=['POST'])
+def like():
+    like = Like.from_json(request.json)
+    db.session.add(like)
+    db.session.commit()
+    return jsonify(like.to_json())\
+
+@app.route("/api/unlike",  methods=['POST'])
+def unlike():
+    unlike = Unlike.from_json(request.json)
+    db.session.add(unlike)
+    db.session.commit()
+    return jsonify(unlike.to_json())
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -135,7 +157,7 @@ class User(db.Model):
 
 class UserProfile(db.Model):
     __tablename__ = 'user_profiles'
-    __searchable__ = ['username', 'course_name_and_year']
+    __searchable__ = ['username']
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer)
     username = db.Column(db.String(64), unique=True, index=True)
@@ -145,7 +167,7 @@ class UserProfile(db.Model):
     thumbs_down = db.Column(db.Integer)
 
     def to_json(self):
-        json_user_profile = {
+        user_profile_json = {
             'id': self.id,
             'user_id': self.user_id,
             'username': self.username,
@@ -154,7 +176,7 @@ class UserProfile(db.Model):
             'thumbs_up': self.thumbs_up,
             'thumbs_down': self.thumbs_down
         }
-        return json_user_profile
+        return user_profile_json
 
     @staticmethod
     def from_json(user_profile):
@@ -164,6 +186,7 @@ class UserProfile(db.Model):
         photo = user_profile.get('photo')
         thumbs_up = user_profile.get('thumbs_up')
         thumbs_down = user_profile.get('thumbs_down')
+
         return UserProfile(user_id = user_id,
                            username = username,
                            course_name_and_year = course_name_and_year,
@@ -174,8 +197,54 @@ class UserProfile(db.Model):
     def __repr__(self):
         return '<UserProfile %r>' % self.username
 
+class Like(db.Model):
+    __tablename__ = 'likes'
+    id = db.Column(db.Integer, primary_key=True)
+    liker_id = db.Column(db.Integer)
+    liked_id = db.Column(db.Integer)
+
+    def to_json(self):
+        like_json = {
+            'liker_id': self.liker_id,
+            'liked': self.liked_id
+        }
+        return like_json
+
+    @staticmethod
+    def from_json(like):
+        liker_id = like.get('liker_id')
+        liked_id = like.get('liked_id')
+
+        return Like(liker_id = liker_id, liked_id = liked_id)
+
+    def __repr__(self):
+        return '<Row %r>' % self.id
+
+class Unlike(db.Model):
+    __tablename__ = 'unlikes'
+    id = db.Column(db.Integer, primary_key=True)
+    unliker_id = db.Column(db.Integer)
+    unliked_id = db.Column(db.Integer)
+
+    def to_json(self):
+        unlike_json = {
+            'unliker_id': self.unliker_id,
+            'unliked_id': self.unliked_id
+        }
+        return unlike_json
+
+    @staticmethod
+    def from_json(unlike):
+        unliker_id = unlike.get('unliker_id')
+        unliked_id = unlike.get('unliked_id')
+
+        return Unlike(unliker_id=unliker_id, unliked_id=unliked_id)
+
+    def __repr__(self):
+        return '<Row %r>' % self.id
+
 def make_shell_context():
-    return dict(app=app, db=db, User=User, UserProfile=UserProfile)
+    return dict(app=app, db=db, User=User, UserProfile=UserProfile, Like=Like, Unlike=Unlike)
 
 manager.add_command("shell", Shell(make_context=make_shell_context))
 manager.add_command('db', MigrateCommand)
