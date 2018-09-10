@@ -10,8 +10,8 @@ from flask_msearch import Search
 import os
 
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://kelis:password@localhost/kelis'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://kelis:password@localhost/kelis'
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MSEARCH_INDEX_NAME'] = 'whoosh_index'
@@ -105,7 +105,7 @@ def update_profile(id):
     db.session.commit()
     return jsonify(user_profile.to_json())
 
-# views.py
+
 @app.route("/api/search",  methods=['POST'])
 def w_search():
     keyword = request.json.get('keyword')
