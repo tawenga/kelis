@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="150a378f-037c-4723-bd5e-c5de0d8957d2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whoosh_index/user_profiles/MAIN_0pvwrrpakm3ugjcb.seg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/whoosh_index/user_profiles/MAIN_1akap7ns0x07a60e.seg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/whoosh_index/user_profiles/MAIN_3xh4hjrrlc0rxjyo.seg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/whoosh_index/user_profiles/MAIN_h4xgxhxrgu7yw5px.seg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/whoosh_index/user_profiles/_MAIN_14.toc" beforeDir="false" />
-    </list>
+    <list default="true" id="150a378f-037c-4723-bd5e-c5de0d8957d2" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +14,8 @@
       <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="232" column="9" lean-forward="true" selection-start-line="232" selection-start-column="9" selection-end-line="232" selection-end-column="9" />
+            <state relative-caret-position="345">
+              <caret line="231" column="33" selection-start-line="231" selection-start-column="33" selection-end-line="231" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -103,7 +95,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="39" y="25" width="1327" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2446319" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -112,7 +103,7 @@
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3295082" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3295082" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -466,8 +457,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="232" column="9" lean-forward="true" selection-start-line="232" selection-start-column="9" selection-end-line="232" selection-end-column="9" />
+        <state relative-caret-position="345">
+          <caret line="231" column="33" selection-start-line="231" selection-start-column="33" selection-end-line="231" selection-end-column="33" />
         </state>
       </provider>
     </entry>
