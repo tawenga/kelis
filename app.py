@@ -10,8 +10,8 @@ from flask_msearch import Search
 import os
 
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://kelis:password@localhost/kelis'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://kelis:password@localhost/kelis'
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MSEARCH_INDEX_NAME'] = 'whoosh_index'
@@ -118,8 +118,7 @@ def update_profile(id):
 @app.route("/api/search",  methods=['POST'])
 def w_search():
     keyword = request.json.get('keyword')
-    #user_profiles = UserProfile.query.msearch(keyword).all()
-    user_profiles = UserProfile.query.msearch(keyword).order_by(UserProfile.thumbs_up.desc()).all()   ##switch to this
+    user_profiles = UserProfile.query.msearch(keyword).order_by(UserProfile.thumbs_up.desc()).all()
     return jsonify({
         'user_profiles': [user_profile.to_json() for user_profile in user_profiles],
     })
@@ -137,6 +136,22 @@ def unlike():
     db.session.add(unlike)
     db.session.commit()
     return jsonify(unlike.to_json())
+
+#get all ids user has liked
+@app.route('/api/likes/<int:id>', methods=['GET'])
+def get_likes(id):
+    likes = Like.query.filter_by(liker_id = id).all()
+    return jsonify({
+        'likes': [like.to_json() for like in likes],
+    })
+
+#get all ids user has unliked
+@app.route('/api/unlikes/<int:id>', methods=['GET'])
+def get_unlikes(id):
+    unlikes = Unlike.query.filter_by(unliker_id = id).all()
+    return jsonify({
+        'unlikes': [unlike.to_json() for unlike in unlikes],
+    })
 
 class User(db.Model):
     __tablename__ = 'users'
